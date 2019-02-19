@@ -1,3 +1,7 @@
+#
+# Extracts monthly ranks from .pdf document received from Press Ganey
+#
+
 import numpy as np
 import pandas as pd
 
