@@ -25,18 +25,23 @@ fo = open(dnameout + "\\" + fnameout,'ab')
 
 Service = 'CHCAHPS'
 
-df = read_csv(dnamein_CHCAHPS + "\\" + fnamein_CHCAHPS, skiprows=6)
-
-#print(df)
+df = read_csv(dnamein_CHCAHPS + "\\" + fnamein_CHCAHPS, usecols = [0, 1, 2, 3, 4, 45], skiprows=6, dtype=str)
 
 df = df.fillna('')
 
-##
-## Variables used to store relevant row ids and parsed text
-##
+# df['EPIC DEPT ID'] = df['EPIC DEPT ID'].astype(str)
+
+# print(df)
+# print(df['EPIC DEPT ID'].dtypes)
+
+# df.columns.tolist()
+
+#
+# Variables used to store relevant row ids and parsed text
+#
 
 columns = ['Service','Epic_Department_Id','Epic_Department_Name','Service_Line','Unit_Location','Domain_Question','FY2020_Score']
-#columns = ['GOAL_YR','SERVICE_LINE','UNIT','DOMAIN','GOAL']
+# columns = ['GOAL_YR','SERVICE_LINE','UNIT','DOMAIN','GOAL']
 
 dfo = pd.DataFrame(columns = columns)
 
@@ -45,7 +50,7 @@ dfo = pd.DataFrame(columns = columns)
 #
   
 for i,row in df.iterrows():
-	topbox_li = row.tolist() # Transform rank data row into a list
+	topbox_li = row.tolist() # Transform goal data row into a list
 	#numEl = len(topbox_li)
 	#print(i, topbox_li)
 	#print(numEl)
@@ -57,7 +62,7 @@ for i,row in df.iterrows():
 		if index == 2: Service_Line = topbox_li[index]
 		if index == 3: Unit_Location = topbox_li[index]
 		if index == 4: Domain_Question = topbox_li[index]
-		if index == 45: FY2020_Score = topbox_li[index]
+		if index == 5: FY2020_Score = topbox_li[index]
 	
 	dfo = dfo.append(dict(zip(columns, (Service,Epic_Department_Id,Epic_Department_Name,Service_Line, Unit_Location, Domain_Question, FY2020_Score))),ignore_index=True)
 
@@ -65,7 +70,9 @@ for i,row in df.iterrows():
 
 dfo = dfo.fillna('')
 dfo.rename(index=str, columns={"FY2020_Score": "2020"}, inplace=True)
+# dfo['Epic_Department_Id'].astype(str)
 # dfo.head()
+# print(dfo)
 
 dfo_unpivot = pd.melt(dfo.replace('null',np.nan),
    id_vars=['Service','Epic_Department_Id','Epic_Department_Name','Service_Line','Unit_Location','Domain_Question'],
@@ -88,7 +95,7 @@ array = None
 
 Service = 'CGCAHPS'
 
-df = read_csv(dnamein_CGCAHPS + "\\" + fnamein_CGCAHPS, skiprows=6)
+df = read_csv(dnamein_CGCAHPS + "\\" + fnamein_CGCAHPS, usecols = [0, 1, 2, 3, 4, 45], skiprows=6, dtype=str)
 
 #print(df)
 
@@ -120,7 +127,7 @@ for i,row in df.iterrows():
 		if index == 2: Service_Line = topbox_li[index]
 		if index == 3: Unit_Location = topbox_li[index]
 		if index == 4: Domain_Question = topbox_li[index]
-		if index == 45: FY2020_Score = topbox_li[index]
+		if index == 5: FY2020_Score = topbox_li[index]
 	
 	dfo = dfo.append(dict(zip(columns, (Service,Epic_Department_Id,Epic_Department_Name,Service_Line, Unit_Location, Domain_Question, FY2020_Score))),ignore_index=True)
 
@@ -128,6 +135,7 @@ for i,row in df.iterrows():
 
 dfo = dfo.fillna('')
 dfo.rename(index=str, columns={"FY2020_Score": "2020"}, inplace=True)
+# dfo['Epic_Department_Id'].astype(str)
 # dfo.head()
 
 dfo_unpivot = pd.melt(dfo.replace('null',np.nan),
@@ -151,7 +159,7 @@ array = None
 
 Service = 'HCAHPS'
 
-df = read_csv(dnamein_HCAHPS + "\\" + fnamein_HCAHPS, skiprows=7)
+df = read_csv(dnamein_HCAHPS + "\\" + fnamein_HCAHPS, usecols = [0, 1, 2, 3, 4, 45], skiprows=7, dtype=str)
 
 #print(df)
 
@@ -183,7 +191,7 @@ for i,row in df.iterrows():
 		if index == 2: Service_Line = topbox_li[index]
 		if index == 3: Unit_Location = topbox_li[index]
 		if index == 4: Domain_Question = topbox_li[index]
-		if index == 45: FY2020_Score = topbox_li[index]
+		if index == 5: FY2020_Score = topbox_li[index]
 	
 	dfo = dfo.append(dict(zip(columns, (Service,Epic_Department_Id,Epic_Department_Name,Service_Line, Unit_Location, Domain_Question, FY2020_Score))),ignore_index=True)
 
@@ -191,6 +199,7 @@ for i,row in df.iterrows():
 
 dfo = dfo.fillna('')
 dfo.rename(index=str, columns={"FY2020_Score": "2020"}, inplace=True)
+# dfo['Epic_Department_Id'].astype(str)
 # dfo.head()
 
 dfo_unpivot = pd.melt(dfo.replace('null',np.nan),
@@ -214,7 +223,7 @@ array = None
 
 Service = 'ED'
 
-df = read_csv(dnamein_ED + "\\" + fnamein_ED, skiprows=6)
+df = read_csv(dnamein_ED + "\\" + fnamein_ED, usecols = [0, 1, 2, 3, 4, 45], skiprows=6, dtype=str)
 
 #print(df)
 
@@ -246,7 +255,7 @@ for i,row in df.iterrows():
 		if index == 2: Service_Line = topbox_li[index]
 		if index == 3: Unit_Location = topbox_li[index]
 		if index == 4: Domain_Question = topbox_li[index]
-		if index == 45: FY2020_Score = topbox_li[index]
+		if index == 5: FY2020_Score = topbox_li[index]
 	
 	dfo = dfo.append(dict(zip(columns, (Service,Epic_Department_Id,Epic_Department_Name,Service_Line, Unit_Location, Domain_Question, FY2020_Score))),ignore_index=True)
 
@@ -254,6 +263,7 @@ for i,row in df.iterrows():
 
 dfo = dfo.fillna('')
 dfo.rename(index=str, columns={"FY2020_Score": "2020"}, inplace=True)
+# dfo['Epic_Department_Id'].astype(str)
 # dfo.head()
 
 dfo_unpivot = pd.melt(dfo.replace('null',np.nan),
