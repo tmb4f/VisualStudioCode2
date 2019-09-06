@@ -28,7 +28,7 @@ Service = 'HCAHPS'
 Epic_Department_Id = ''
 Epic_Department_Name = ''
 
-df = read_csv(dnamein_HCAHPS + "\\" + fnamein_HCAHPS, usecols = [0, 1, 2, 48], skiprows=7, dtype=str)
+df = read_csv(dnamein_HCAHPS + "\\" + fnamein_HCAHPS, usecols = [0, 1, 2, 48], skiprows=6, dtype=str)
 
 #print(df)
 
