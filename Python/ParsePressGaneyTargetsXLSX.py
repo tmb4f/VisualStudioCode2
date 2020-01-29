@@ -1,5 +1,5 @@
 #
-# Extracts monthly ranks from .pdf document received from Press Ganey
+# Extracts FY targets from .xlsx document created by Patient Experience Office
 #
 
 import numpy as np
@@ -19,51 +19,48 @@ fo = open(dnameout + "\\" + fnameout,'wb')
 # Read xlsx and store in OrderedDict collection.  Each sheet name becomes the key value for the respective dataframe.
 #
 
-df = pd.io.excel.read_excel(dnamein + "\\" + fnamein, sheet_name=None)
+od = pd.io.excel.read_excel(dnamein + "\\" + fnamein, sheet_name=None)
 
-# df.keys()
-# df['CH-CAHPS'].head()
-# for k, v in df.items():
-#     print(k, v)
+Sheet_names_list = []
 
-# print(df)
+for sheet, df in od.items():
+    Sheet_names_list.append(sheet)
 
-#
-# Variables used to store relevant row ids and parsed text
-#
-  
-domain_i = -1
-domain_n = ""
-daterange_i = -1
-daterange_start = ""
-daterange_end = ""
-topbox_i = -1
-columns = ['StartDate','EndDate','Question','Percentile','Rank']
-dfo = pd.DataFrame(columns = columns)
+# Sheet_names_list = ['EVS-Dietary']
 
-#
-# Iterate through dataframe by row
-#
-  
-for i,row in df.iterrows():
- if row[0] == "All PG Database": # Page header row
-     domain_i = i + 3 # Dataframe row with question name
-     daterange_i = i + 1 # Dataframe row with date range
-     topbox_i = i + 7 # First dataframe row with rank data
- if i == domain_i : domain_n = row[0] # Save question name
- if i == daterange_i: daterange_li = row[0].split(' - '); daterange_start = daterange_li[0]; daterange_end = daterange_li[1] # Save date range
- if i >= topbox_i: # Dataframe row contains rank data
-     topbox_li = row[0].split() # Transform rank data row into a list
-     for index, item in enumerate(topbox_li):
-         if index % 2 == 0: # List item is a percentile
-             nextitem = topbox_li[index+1] # Save rank for percentile
-             dfo = dfo.append(dict(zip(columns, (daterange_start, daterange_end, domain_n, item, nextitem))),ignore_index=True)
+for sheet in Sheet_names_list :
+    df_to_print = od[sheet]
+    df_to_print['Sheet_Name'] = sheet
+    # Set the index to become the last column
+    df_to_print.set_index(df_to_print.columns[-1], inplace=True)
+    # Add current index as a column, add new sequential index
+    df_to_print.reset_index(inplace=True)
+    
+    # Create column headings list
+    columns = []
+    number_of_columns = len(df_to_print.columns)
+    columns = np.arange(1, number_of_columns, 1)
+    
+    dfo = None
+    
+    array = None
+    
+    row_index = -1
 
-# print(dfo)
-
-array = dfo.values
-df = None
-np.savetxt(fo, array, fmt='%s', delimiter=",")
+    # Loop through datafrane rows, appending relevant rows
+    if len(df_to_print.columns) > 4: # 
+        for i,row in df_to_print.iterrows():
+            if row[5] == "Domain/Question":
+                dfo = pd.DataFrame(columns = columns)
+                row_index = i
+            if row_index > -1 and i > row_index and not pd.isnull(row[5]):
+                dfo = dfo.append(dict(zip(columns,pd.to_numeric(row.tolist(), errors='ignore'))),ignore_index=True)
+               
+    if row_index > -1:
+        dfo = dfo.replace(np.nan,'', regex=True)
+        dfo = dfo.round(1)
+        # dfo = dfo.astype('str')
+        array = dfo.values
+        np.savetxt(fo, array, fmt='%s', delimiter=",", encoding='utf-8')
+    
 fo.close
-dfo = None
-array = None
