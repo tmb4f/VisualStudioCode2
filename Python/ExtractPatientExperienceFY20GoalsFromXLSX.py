@@ -5,8 +5,6 @@
 import numpy as np
 import pandas as pd
 
-from tabula import read_pdf
-
 dnamein = "O:\\Computing Services\\INFSUP_S\\Documentation\\Projects\\Patient Experience\\Data\\Goals"
 dnameout = "O:\\Computing Services\\INFSUP_S\\Documentation\\Projects\\Patient Experience\\Data\\Goals\\Cleaned"
 
