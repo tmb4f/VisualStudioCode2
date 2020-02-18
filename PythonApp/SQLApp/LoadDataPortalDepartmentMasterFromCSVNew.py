@@ -3,11 +3,6 @@ import pandas as pd
 import csv as csv
 import pyodbc
 
-""" Service_Dictionary = {'HCAHPS (2)': ['HCAHPS'],
-'CH-CAHPS': ['CHCAHPS'],
-'CG-CAHPS': ['CGCAHPS'],
-'ED': ['ED']} """
-
 dnamein = "C:\\Users\\tmb4f\\source\\Workspaces\\Tom Burgan - My Files\\Development\\GitRepositories\\BalancedScorecard\\Excel Documents"
 
 fnamein = "departments.csv"
@@ -20,7 +15,7 @@ fi = open(dnamein + "\\" + fnamein)
 
 csvreader = csv.reader(fi, delimiter=',', quotechar='"')
 
-# This skips the first row of the CSV file.
+# This skips the first row of the CSV file.  Assuming there is a column header row.
 
 next(csvreader)
 
@@ -49,7 +44,7 @@ cursor_array = None
 
 cursor.execute("DELETE FROM Rptg.Data_Portal_Department_Master")
 
-cursor.commit()
+connStr.commit()
     
 # Create dataframe
     
@@ -64,95 +59,48 @@ for row in csvreader:
 
 df = df.fillna('')
 
-""" result= ''
-    for element in list:
-        result += str(element)"""
+# Create a string representing the list of columns that will inserted into the target table
 
-# def column_string(lst):
-# 	string = ''
-# 	for item in lst:
-# 		string += '[' + str(item) + '],'
-# 	return string
-	
-def column_string(lst, prefx, separator, sufx):
-	# s = '],['
-	return prefx + separator.join(lst) + sufx
+column_string = '[' + '],['.join([f'{item}' for item in column_list]) + ']'
 
-def value_string(lst):
-	# vlst = ['?' for item in lst]
-	return ','.join(['?' for item in lst])
+# Create a string containing the SQL statement arguments for the values that will be inserted into the target table
 
-print(column_string(column_list,'[','],[',']'))
-# print(column_string(column_list,"row['","'],row['","]"))
-print(value_string(column_list))
+value_string = ','.join(['?' for item in column_list])
 
-for index,row in df.iterrows():
-	data_list = row.tolist()
-	print(','.join(data_list))
+# print(column_string)
+# print(value_string)
 
-"""#
-# Iterate through dataframe by row
-#
-  
-for i,row in df.iterrows():
-	csv_li = row.tolist() # Transform master location data row into a list
+# for index,row in df.iterrows():
+# 	data_list = row.tolist()
+# 	print(','.join(data_list))
 
-	for index, item in enumerate(csv_li):
-		if index == 0: key = csv_li[index]
-		if index == 1: level = csv_li[index]
-		if index == 2: hsArea_sid = csv_li[index]
-		if index == 3: sid = csv_li[index]
-		if index == 4: display = csv_li[index]
-		if index == 5: name_external = csv_li[index]
-		if index == 6: name = csv_li[index]
-		if index == 7: service_line_id = csv_li[index]
-		if index == 8: service_line_type = csv_li[index]
-		if index == 9: sub_service_line_id = csv_li[index]
-		if index == 10: pod_id = csv_li[index]
-		if index == 11: hub_id = csv_li[index]
-		if index == 12: practice_group_id = csv_li[index]
-		if index == 13: practice_id = csv_li[index]
-		if index == 14: group_id = csv_li[index]
-		if index == 15: department_id = csv_li[index]
-		if index == 16: financial_division_id = csv_li[index]
-		if index == 17: rev_location_id = csv_li[index]
-		if index == 18: is_upg = csv_li[index]
-		if index == 19: mc_som_id = csv_li[index]
-		if index == 20: outpatient_flu = csv_li[index]
-		if index == 21: ambulatory_scorecard = csv_li[index]
-	
-	dfo = dfo.append(dict(zip(csv_columns, (key,level,hsArea_sid,sid,display,name_external,name,service_line_id,service_line_type,sub_service_line_id,pod_id,hub_id,practice_group_id,practice_id,group_id,department_id,financial_division_id,rev_location_id,is_upg,mc_som_id,outpatient_flu,ambulatory_scorecard))),ignore_index=True)
+# Create SQL statement, defining the list of columns and their values/value arguments
 
-dfo = dfo.fillna('')
+query = f"INSERT INTO Rptg.Data_Portal_Department_Master({column_string}) VALUES ({value_string})"
 
-# print(dfo)
+# print(query)
 
-for index,row in dfo.iterrows():
-	cursor.execute("INSERT INTO Rptg.Data_Portal_Department_Master([key],[level],[hsArea_sid],[sid],[display],[name_external],[name],[service_line_id],[service_line_type],[sub_service_line_id],[pod_id],[hub_id],[practice_group_id],[practice_id],[group_id],[department_id],[financial_division_id],[rev_location_id],[is_upg],[mc_som_id],[outpatient_flu],[ambulatory_scorecard]) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", row['key'],row['level'],row['hsArea_sid'],row['sid'],row['display'],row['name_external'],row['name'],row['service_line_id'],row['service_line_type'],row['sub_service_line_id'],row['pod_id'],row['hub_id'],row['practice_group_id'],row['practice_id'],row['group_id'],row['department_id'],row['financial_division_id'],row['rev_location_id'],row['is_upg'],row['mc_som_id'],row['outpatient_flu'],row['ambulatory_scorecard'])
-	connStr.commit()
+"""was not returning a list of "list[s], tuple[s], or [pyodbc] Row[s]", it was returning a list of "numpy.records". The solution was to convert the "records" so that params contained a list of tuples:
+
+params = list(tuple(row) for row in data_table.head(10).values)
+"""
+
+# Create a sequence composed of the parameters and their values, aligning to the arguments
+params = list(tuple(row) for row in df.values)
+
+# print(params)
+
+# Generate SQL statment
+
+cursor.executemany(query,params)
+
+# Execute SQL statement
+
+connStr.commit()
 
 cursor.close()
 connStr.close()
 
-fi.close()
+fi.close
+
 df = None
-dfs = None
-dfo = None
-
-dfo_unpivot = pd.melt(dfo.replace('null',np.nan),
-   id_vars=['Service','Epic_Department_Id','Epic_Department_Name','Service_Line','Unit_Location','Domain_Question'],
-   value_vars=dfo.columns.drop(['Service','Epic_Department_Id','Epic_Department_Name','Service_Line','Unit_Location','Domain_Question']).tolist(),
-   value_name='Score') \
-   .dropna() \
-   .sort_values(['Service','Epic_Department_Id','Epic_Department_Name','Service_Line','Unit_Location','Domain_Question'])
-   
-dfo_unpivot['Score'] = dfo_unpivot['Score'].apply(lambda x: str(round(float(x),1)) if len(x) > 0 else x)
-
-array = dfo_unpivot.values
-df = None
-dfo = None
-dfo_unpivot = None
-np.savetxt(fo, array, fmt='%s', delimiter=",")
-array = None
-
-fo.close() """
