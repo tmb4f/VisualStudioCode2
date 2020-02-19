@@ -10,8 +10,8 @@ Service_Dictionary = {'HCAHPS (2)': ['HCAHPS'],
 dnamein = "O:\\Computing Services\\INFSUP_S\\Documentation\\Projects\\Patient Experience\\Data\\Goals\\Cleaned"
 dnameout = "O:\\Computing Services\\INFSUP_S\\Documentation\\Projects\\Patient Experience\\Data\\Goals\\Cleaned"
 
-fnamein = "FY20 SL Targets New.txt"
-fnameout = "FY20 SL Targets New New.txt"
+fnamein = "FY20 SL Targets Staging.txt"
+fnameout = "FY20 SL Targets.txt"
 
 fo = open(dnameout + "\\" + fnameout,'ab')
 fi = open(dnamein + "\\" + fnamein)

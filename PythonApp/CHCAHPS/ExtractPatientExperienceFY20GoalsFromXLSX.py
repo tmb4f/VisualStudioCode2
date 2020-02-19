@@ -9,7 +9,7 @@ dnamein = "O:\\Computing Services\\INFSUP_S\\Documentation\\Projects\\Patient Ex
 dnameout = "O:\\Computing Services\\INFSUP_S\\Documentation\\Projects\\Patient Experience\\Data\\Goals\\Cleaned"
 
 fnamein = "FY20 SL Targets.xlsx"
-fnameout = "FY20 SL Targets New.txt"
+fnameout = "FY20 SL Targets Staging.txt"
 
 fo = open(dnameout + "\\" + fnameout,'wb')
 
