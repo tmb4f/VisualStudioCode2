@@ -21,7 +21,8 @@ next(csvreader)
 
 # Create ODBC connection to target database
 
-connStr = pyodbc.connect('DRIVER={SQL Server};SERVER=HSTSARTDMT;DATABASE=DS_HSDM_App_Dev;Trusted_Connection=yes')
+# connStr = pyodbc.connect('DRIVER={SQL Server};SERVER=HSTSARTDMT;DATABASE=DS_HSDM_App_Dev;Trusted_Connection=yes')
+connStr = pyodbc.connect('DRIVER={SQL Server};SERVER=HSTSARTDM;DATABASE=DS_HSDM_App;Trusted_Connection=yes')
 cursor = connStr.cursor()
 
 # Extract column names for target table and place in a list.
