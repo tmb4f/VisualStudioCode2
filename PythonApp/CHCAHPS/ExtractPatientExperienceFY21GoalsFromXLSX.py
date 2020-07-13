@@ -10,8 +10,8 @@ dnameout = "O:\\Computing Services\\INFSUP_S\\Documentation\\Projects\\Patient E
 
 # fnamein = "FY20 SL Targets.xlsx"
 # fnameout = "FY20 SL Targets Staging.txt"
-fnamein = "PXO FY21 GoalSetting_5182020 (BC 6-30-20).xlsx"
-fnameout = "PXO FY21 GoalSetting_5182020 (BC 6-30-20) Staging.txt"
+fnamein = "PXO FY21 GoalSetting_5182020 (BC 7-13-20).xlsx"
+fnameout = "PXO FY21 GoalSetting_5182020 (BC 7-13-20) Staging.txt"
 
 fo = open(dnameout + "\\" + fnameout,'wb')
 
@@ -39,14 +39,15 @@ for sheet in Sheet_names_list :
     # Create column headings list
     columns = []
     number_of_columns = len(df_to_print.columns)
-    columns = np.arange(1, number_of_columns, 1)
+    # columns = np.arange(1, number_of_columns, 1)
+    columns = np.arange(0, number_of_columns, 1)
     
     dfo = None
     
     array = None
     
-    # row_index = -1  
-    row_index = 0 # Defines previous row number for valid data row (i.e. skipping column header rows)
+    row_index = -1
+    # row_index = 0 # Defines previous row number for valid data row (i.e. skipping column header rows)
 
     # Loop through datafrane rows, appending relevant rows
     if len(df_to_print.columns) > 4: # Number of columns in sheet
@@ -58,17 +59,20 @@ for sheet in Sheet_names_list :
             if row[2] == "x":
                 row_index = i
             # if row_index > -1 and i > row_index and not pd.isnull(row[5]):
-            if row_index > 0 and i > row_index and not pd.isnull(row[2]):
+            # if row_index > 0 and i > row_index and not pd.isnull(row[2]):
+            if row[2] != "x" and row_index > -1 and i > row_index and not pd.isnull(row[2]):
                 dfo = dfo.append(dict(zip(columns,pd.to_numeric(row.tolist(), errors='ignore'))),ignore_index=True)
                
-    # if row_index > -1:              
-    if row_index > 0:
+    if row_index > -1:             
+    # if row_index > 0:
         dfo = dfo.replace(np.nan,'', regex=True)
         # dfo = dfo.round(1)
         # dfo = dfo.astype('str')
         array = dfo.values
         np.savetxt(fo, array, fmt='%s', delimiter=",", encoding='utf-8')
 
+    dfo = None
+    array = None
     df_to_print = None
     
 fo.close
