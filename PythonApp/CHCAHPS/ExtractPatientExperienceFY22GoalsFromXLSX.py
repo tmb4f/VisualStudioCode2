@@ -36,7 +36,7 @@ for sheet in Sheet_names_list :
     df_to_print['Sheet_Name'] = sheet
 
     # df=df.replace({';':''}, regex=True)
-    
+
     # Set the index to become the last column
     df_to_print.set_index(df_to_print.columns[-1], inplace=True)
     # Add current index as a column, add new sequential index
@@ -75,14 +75,23 @@ for sheet in Sheet_names_list :
     if row_index > -1:             
     # if row_index > 0:
         dfo = dfo.replace(np.nan,'', regex=True)
+
+        # dfo=dfo.replace({',':''}, regex=True, inplace=True)
+
         # dfo = dfo.round(1)
         # dfo = dfo.astype('str')
         array = dfo.values
+
+        # x = np.char.replace(array, ',', '')
+
         # fmt='"%s"'
-        np.savetxt(fo, array, fmt='%s', delimiter=",", encoding='utf-8')
+        # np.savetxt(fo, array, fmt='%s', delimiter=",", encoding='utf-8')
+        # np.savetxt(fo, x, fmt='%s', delimiter=",", encoding='utf-8')
+        np.savetxt(fo, array, fmt='"%s"', delimiter=",", encoding='utf-8')
 
     dfo = None
     array = None
+    x = None
     df_to_print = None
     
 fo.close
