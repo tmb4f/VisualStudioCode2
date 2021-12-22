@@ -34,6 +34,9 @@ for sheet, df in od.items():
 for sheet in Sheet_names_list :
     df_to_print = od[sheet]
     df_to_print['Sheet_Name'] = sheet
+
+    # df=df.replace({';':''}, regex=True)
+    
     # Set the index to become the last column
     df_to_print.set_index(df_to_print.columns[-1], inplace=True)
     # Add current index as a column, add new sequential index
@@ -75,6 +78,7 @@ for sheet in Sheet_names_list :
         # dfo = dfo.round(1)
         # dfo = dfo.astype('str')
         array = dfo.values
+        # fmt='"%s"'
         np.savetxt(fo, array, fmt='%s', delimiter=",", encoding='utf-8')
 
     dfo = None
