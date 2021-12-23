@@ -128,7 +128,8 @@ df = None
 dfo = None
 dfo_unpivot_1 = None
 dfo_unpivot_2 = None
-np.savetxt(fo, array, fmt='%s', delimiter=",")
+# np.savetxt(fo, array, fmt='%s', delimiter=",")
+np.savetxt(fo, array, fmt='"%s"', delimiter=",")
 array = None
 
 fo.close()
