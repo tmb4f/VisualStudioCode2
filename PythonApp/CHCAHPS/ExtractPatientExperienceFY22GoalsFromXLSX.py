@@ -14,9 +14,10 @@ dnameout = "O:\\Computing Services\\INFSUP_S\\Documentation\\Projects\\Patient E
 # fnameout = "PXO FY21 GoalSetting_5182020 (BC 7-13-20) Staging.txt"
 # fnamein = "FY22 Revised Goal Setting_12-7-2021.xlsx"
 # fnameout = "FY22 Revised Goal Setting_12-7-2021 Staging.txt"
-fnamein = "FY22 Revised Goal Setting_12-28-2021.xlsx"
-fnameout = "FY22 Revised Goal Setting_12-28-2021 Staging.txt"
-
+# fnamein = "FY22 Revised Goal Setting_12-28-2021.xlsx"
+# fnameout = "FY22 Revised Goal Setting_12-28-2021 Staging.txt"
+fnamein = "FY22 Revised Goal Setting_1062022.xlsx"
+fnameout = "FY22 Revised Goal Setting_1062022 Staging.txt" 
 
 fo = open(dnameout + "\\" + fnameout,'wb')
 
