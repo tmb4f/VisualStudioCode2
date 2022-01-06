@@ -19,7 +19,9 @@ dnameout = "O:\\Computing Services\\INFSUP_S\\Documentation\\Projects\\Patient E
 # fnameout = "FY21 SL Targets.txt"
 
 # fnamein = "FY22 Revised Goal Setting_12-7-2021 Staging.txt"
-fnamein = "FY22 Revised Goal Setting_12-28-2021 Staging.txt"
+# fnamein = "FY22 Revised Goal Setting_12-28-2021 Staging.txt"
+fnamein = "FY22 Revised Goal Setting_1062022 Staging.txt"
+
 fnameout = "FY22 SL Targets.txt"
 
 fo = open(dnameout + "\\" + fnameout,'ab')
