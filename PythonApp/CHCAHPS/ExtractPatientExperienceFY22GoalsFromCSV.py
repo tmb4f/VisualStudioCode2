@@ -20,7 +20,9 @@ dnameout = "O:\\Computing Services\\INFSUP_S\\Documentation\\Projects\\Patient E
 
 # fnamein = "FY22 Revised Goal Setting_12-7-2021 Staging.txt"
 # fnamein = "FY22 Revised Goal Setting_12-28-2021 Staging.txt"
-fnamein = "FY22 Revised Goal Setting_1062022 Staging.txt"
+# fnamein = "FY22 Revised Goal Setting_1062022 Staging.txt"
+fnamein = "FY22 Revised Goal Setting_1102022_1112022 Staging.txt"
+
 
 fnameout = "FY22 SL Targets.txt"
 
@@ -53,6 +55,8 @@ dfs = df.iloc[:,[1,2,3,4,5,6,7,8,9,10,11,12,13]]
 
 service_line_columns = ['Service_Line','Epic_Department_Id','Epic_Department_Name','Domain','Question','FY2022_Unit_Score','Organization','FY2022_Organization_Score','Service','FY2022_Service_Score','Clinical_Area','FY2022_Clinical_Area_Score','FY2022_All_SL_Score']
 
+# service_line_columns = ['Service_Line','Epic_Department_Id','Epic_Department_Name','Domain','Question','FY2022_Unit_Score','Clinical_Area','FY2022_Clinical_Area_Score','Service','FY2022_Service_Score','Organization','FY2022_Organization_Score','FY2022_All_SL_Score']
+
 # dfo = pd.DataFrame(columns = service_columns)
 
 dfo = pd.DataFrame(columns = service_line_columns)
@@ -76,12 +80,19 @@ for i,row in dfs.iterrows():
 			if index == 3: Domain = topbox_li[index]
 			if index == 4: Question = topbox_li[index]
 			if index == 5: FY2022_Unit_Score = topbox_li[index]
-			if index == 6: Organization = topbox_li[index]
-			if index == 7: FY2022_Organization_Score = topbox_li[index]
+			# if index == 6: Organization = topbox_li[index]
+			# if index == 7: FY2022_Organization_Score = topbox_li[index]
+			# if index == 8: Service = topbox_li[index]
+			# if index == 9: FY2022_Service_Score = topbox_li[index]
+			# if index == 10: Clinical_Area = topbox_li[index]
+			# if index == 11: FY2022_Clinical_Area_Score = topbox_li[index]
+			# if index == 12: FY2022_All_SL_Score = topbox_li[index]
+			if index == 10: Organization = topbox_li[index]
+			if index == 11: FY2022_Organization_Score = topbox_li[index]
 			if index == 8: Service = topbox_li[index]
 			if index == 9: FY2022_Service_Score = topbox_li[index]
-			if index == 10: Clinical_Area = topbox_li[index]
-			if index == 11: FY2022_Clinical_Area_Score = topbox_li[index]
+			if index == 6: Clinical_Area = topbox_li[index]
+			if index == 7: FY2022_Clinical_Area_Score = topbox_li[index]
 			if index == 12: FY2022_All_SL_Score = topbox_li[index]
 	
 		# dfo = dfo.append(dict(zip(service_columns, (Service,Reporting_Level,Domain,Question,Epic_Department_Id,Epic_Department_Name,Service_Line,FY2021_Unit_Score,FY2021_All_SL_Score))),ignore_index=True)
