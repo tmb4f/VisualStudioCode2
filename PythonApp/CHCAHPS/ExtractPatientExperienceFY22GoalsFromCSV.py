@@ -21,8 +21,8 @@ dnameout = "O:\\Computing Services\\INFSUP_S\\Documentation\\Projects\\Patient E
 # fnamein = "FY22 Revised Goal Setting_12-7-2021 Staging.txt"
 # fnamein = "FY22 Revised Goal Setting_12-28-2021 Staging.txt"
 # fnamein = "FY22 Revised Goal Setting_1062022 Staging.txt"
-fnamein = "FY22 Revised Goal Setting_1102022_1112022 Staging.txt"
-
+# fnamein = "FY22 Revised Goal Setting_1102022_1112022 Staging.txt"
+fnamein = "FY22 Revised Goal Setting_(Tom)1132022_1132022 Staging.txt"
 
 fnameout = "FY22 SL Targets.txt"
 
