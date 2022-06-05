@@ -7,9 +7,14 @@ import csv as csv
 # 'CGCAHPS': ['CGCAHPS'],
 # 'ER': ['ED']}
 
+# Service_Line_Dictionary = {'Inpatient': ['HCAHPS'],
+# 'Inpatient Pediatrics': ['CHCAHPS'],
+# 'OP Clinics': ['CGCAHPS'],
+# 'Emergency Department': ['ED']}
+
 Service_Line_Dictionary = {'Inpatient': ['HCAHPS'],
-'Inpatient Pediatrics': ['CHCAHPS'],
-'OP Clinics': ['CGCAHPS'],
+'Inpatient Pediatric': ['CHCAHPS'],
+'Medical Practice': ['CGCAHPS'],
 'Emergency Department': ['ED']}
 
 dnamein = "O:\\Computing Services\\INFSUP_S\\Documentation\\Projects\\Patient Experience\\Data\\Goals\\Cleaned"
