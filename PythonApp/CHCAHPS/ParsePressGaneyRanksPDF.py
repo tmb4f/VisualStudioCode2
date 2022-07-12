@@ -54,7 +54,8 @@ from tabula import read_pdf
 # dnamein = "O:\\Computing Services\\INFSUP_S\\Documentation\\Projects\\Patient Experience\\CHCAHPS\\Data\\Percentile Rank\\Original From Client\\031522"
 # dnamein = "O:\\Computing Services\\INFSUP_S\\Documentation\\Projects\\Patient Experience\\CHCAHPS\\Data\\Percentile Rank\\Original From Client\\041522"
 # dnamein = "O:\\Computing Services\\INFSUP_S\\Documentation\\Projects\\Patient Experience\\CHCAHPS\\Data\\Percentile Rank\\Original From Client\\051322"
-dnamein = "O:\\Computing Services\\INFSUP_S\\Documentation\\Projects\\Patient Experience\\CHCAHPS\\Data\\Percentile Rank\\Original From Client\\061322"
+# dnamein = "O:\\Computing Services\\INFSUP_S\\Documentation\\Projects\\Patient Experience\\CHCAHPS\\Data\\Percentile Rank\\Original From Client\\061322"
+dnamein = "O:\\Computing Services\\INFSUP_S\\Documentation\\Projects\\Patient Experience\\CHCAHPS\\Data\\Percentile Rank\\Original From Client\\071222"
 dnameout = "O:\\Computing Services\\INFSUP_S\\Documentation\\Projects\\Patient Experience\\CHCAHPS\\Data\\Percentile Rank\\Cleaned"
 
 #fnamein = "2018_07 CHCAHPS TB_R - All PG Database_CMS View.pdf"
@@ -151,8 +152,10 @@ dnameout = "O:\\Computing Services\\INFSUP_S\\Documentation\\Projects\\Patient E
 # fnameout = "2022_04 CHCAHPS TB_R - All PG Database_CMS View.txt"
 # fnamein = "2022_05 CHCAHPS TB_R - All PG Database_CMS View.pdf"
 # fnameout = "2022_05 CHCAHPS TB_R - All PG Database_CMS View.txt"
-fnamein = "2022_06 CHCAHPS TB_R - All PG Database_CMS View.pdf"
-fnameout = "2022_06 CHCAHPS TB_R - All PG Database_CMS View.txt"
+# fnamein = "2022_06 CHCAHPS TB_R - All PG Database_CMS View.pdf"
+# fnameout = "2022_06 CHCAHPS TB_R - All PG Database_CMS View.txt"
+fnamein = "2022_07 CHCAHPS TB_R - All PG Database_CMS View.pdf"
+fnameout = "2022_07 CHCAHPS TB_R - All PG Database_CMS View.txt"
 
 fo = open(dnameout + "\\" + fnameout,'wb')
 
