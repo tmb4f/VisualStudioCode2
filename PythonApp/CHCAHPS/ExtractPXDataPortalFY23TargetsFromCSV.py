@@ -20,7 +20,15 @@ import csv as csv
 Service_Line_Dictionary = {'Dental Services': ['Dental Services'],
 'Medical Practice': ['Medical Practice'],
 'Outpatient Behav. Health': ['Outpatient Behav. Health'],
-'Telehealth': ['Telehealth']}
+'Telehealth': ['Telehealth'],
+'Ambulatory Surgery':['Ambulatory Surgery'],
+'Emergency Department':['Emergency Department'],
+'Home Health Care':['Home Health Care'],
+'Inpatient':['Inpatient'],
+'Inpatient Behav. Health':['Inpatient Behav. Health'],
+'Inpatient Pediatric':['Inpatient Pediatric'],
+'LTACH Inpatient':['LTACH Inpatient'],
+'Outpatient Services':['Outpatient Services']}
 
 dnamein = "O:\\Computing Services\\INFSUP_S\\Documentation\\Projects\\Patient Experience\\Data\\Goals\\Cleaned"
 dnameout = "O:\\Computing Services\\INFSUP_S\\Documentation\\Projects\\Patient Experience\\Data\\Goals\\Cleaned"
@@ -40,7 +48,8 @@ dnameout = "O:\\Computing Services\\INFSUP_S\\Documentation\\Projects\\Patient E
 # fnamein = "FY22 Revised Goal Setting_(Tom)4152022_4152022 Staging.txt"
 # fnamein = "FY22 Revised Goal Setting_(Tom)4212022_4252022 Staging.txt"
 # fnamein = "FY23 Goals Sue's Copy-07152022_07252022 Staging.txt"
-fnamein = "FY23 Goals Sue's Copy-07152022_08012022 Staging.txt"
+# fnamein = "FY23 Goals Sue's Copy-07152022_08012022 Staging.txt"
+fnamein = "FY23 Goal Setting Tom-Sue's Copy-8152022_08162022 Staging.txt"
 
 fnameout = "FY23 DP Targets.txt"
 
