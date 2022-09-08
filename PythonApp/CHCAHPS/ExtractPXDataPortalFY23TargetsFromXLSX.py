@@ -42,8 +42,10 @@ dnameout = "O:\\Computing Services\\INFSUP_S\\Documentation\\Projects\\Patient E
 # fnameout = "FY23 Goals Sue's Copy-07152022_07252022 Staging.txt"
 # fnamein = "FY23 Goals Sue's Copy-07152022_08012022.xlsx"
 # fnameout = "FY23 Goals Sue's Copy-07152022_08012022 Staging.txt"
-fnamein = "FY23 Goal Setting Tom-Sue's Copy-8152022_08162022.xlsx"
-fnameout = "FY23 Goal Setting Tom-Sue's Copy-8152022_08162022 Staging.txt"
+# fnamein = "FY23 Goal Setting Tom-Sue's Copy-8152022_08162022.xlsx"
+# fnameout = "FY23 Goal Setting Tom-Sue's Copy-8152022_08162022 Staging.txt"
+fnamein = "FY23 Goal Setting Tom-Sue's Copy-9072022_09082022.xlsx"
+fnameout = "FY23 Goal Setting Tom-Sue's Copy-9072022_09082022 Staging.txt"
 
 
 
