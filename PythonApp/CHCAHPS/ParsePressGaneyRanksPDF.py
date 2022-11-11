@@ -58,7 +58,8 @@ from tabula import read_pdf
 # dnamein = "O:\\Computing Services\\INFSUP_S\\Documentation\\Projects\\Patient Experience\\CHCAHPS\\Data\\Percentile Rank\\Original From Client\\071222"
 # dnamein = "O:\\Computing Services\\INFSUP_S\\Documentation\\Projects\\Patient Experience\\CHCAHPS\\Data\\Percentile Rank\\Original From Client\\081222"
 # dnamein = "O:\\Computing Services\\INFSUP_S\\Documentation\\Projects\\Patient Experience\\CHCAHPS\\Data\\Percentile Rank\\Original From Client\\091322"
-dnamein = "O:\\Computing Services\\INFSUP_S\\Documentation\\Projects\\Patient Experience\\CHCAHPS\\Data\\Percentile Rank\\Original From Client\\101322"
+# dnamein = "O:\\Computing Services\\INFSUP_S\\Documentation\\Projects\\Patient Experience\\CHCAHPS\\Data\\Percentile Rank\\Original From Client\\101322"
+dnamein = "O:\\Computing Services\\INFSUP_S\\Documentation\\Projects\\Patient Experience\\CHCAHPS\\Data\\Percentile Rank\\Original From Client\\111122"
 dnameout = "O:\\Computing Services\\INFSUP_S\\Documentation\\Projects\\Patient Experience\\CHCAHPS\\Data\\Percentile Rank\\Cleaned"
 
 #fnamein = "2018_07 CHCAHPS TB_R - All PG Database_CMS View.pdf"
