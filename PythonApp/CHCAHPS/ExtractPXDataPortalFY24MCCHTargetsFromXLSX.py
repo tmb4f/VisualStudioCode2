@@ -8,8 +8,11 @@ import pandas as pd
 dnamein = "O:\\Computing Services\\INFSUP_S\\Documentation\\Projects\\Patient Experience\\Data\\Goals"
 dnameout = "O:\\Computing Services\\INFSUP_S\\Documentation\\Projects\\Patient Experience\\Data\\Goals\\Cleaned"
 
-fnamein = "FY24 Tom's Copy UVA MC and CH (v3)_08042023.xlsx"
-fnameout = "FY24 Tom's Copy UVA MC and CH (v3)_08042023 Staging.txt"
+# fnamein = "FY24 Tom's Copy UVA MC and CH (v3)_08042023.xlsx"
+# fnameout = "FY24 Tom's Copy UVA MC and CH (v3)_08042023 Staging.txt"
+fnamein = "FY24 Goal Setting (V3 w MedPrac CH-MC)_08282023.xlsx"
+fnameout = "FY24 Goal Setting (V3 w MedPrac CH-MC)_08282023 Staging.txt"
+
 
 fo = open(dnameout + "\\" + fnameout,'wb')
 
