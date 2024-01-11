@@ -216,8 +216,9 @@ fo = open(dnameout + "\\" + fnameout,'wb')
 #
 
 df = read_pdf(dnamein + "\\" + fnamein, pages="all", guess=False, stream=True, pandas_options={'header':None})
+# ldf = read_pdf(dnamein + "\\" + fnamein, pages="all", guess=False, stream=True, pandas_options={'header':None})
 
-# print(df)
+# df = pd.concat(ldf)
 
 #
 # Variables used to store relevant row ids and parsed text
