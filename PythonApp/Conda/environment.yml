@@ -1,0 +1,20 @@
+name: condaenv
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.12
+  - jupyterlab
+  - rich
+  - faker
+  - chime
+  - schedule
+  - pandas
+  - numpy
+  - tabula-py
+  - matplotlib
+  - seaborn
+  - sklearn-contrib-lightning
+  - scipy
+  - flask
+  - pip
