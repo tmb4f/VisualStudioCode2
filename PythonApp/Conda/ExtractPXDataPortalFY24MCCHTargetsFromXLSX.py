@@ -69,7 +69,7 @@ for sheet in Sheet_names_list :
             #     dfo = dfo.append(dict(zip(columns,pd.to_numeric(row.tolist(), errors='ignore'))),ignore_index=True)
             if row_index > -1:
                 dfo = dfo.append(dict(zip(columns,pd.to_numeric(row.tolist(), errors='ignore'))),ignore_index=True)
-               
+    
     if row_index > -1:             
     # if row_index > 0:
         dfo = dfo.replace(np.nan,'', regex=True)
