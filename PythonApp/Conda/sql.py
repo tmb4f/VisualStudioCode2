@@ -7,9 +7,9 @@ Author id : sk2vk
 
 import os
 import logging
-# from dotenv import load_dotenv
+from dotenv import load_dotenv
 
-# load_dotenv(verbose=False)
+load_dotenv(verbose=False)
 
 user_id = os.getenv("INTERCONNECT_USERID")
 passwd = os.getenv("INTERCONNECT_PASSWD")
