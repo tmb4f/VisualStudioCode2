@@ -4,18 +4,18 @@ Created_on: 12-01-2020
 Author: Satya Kommuri
 Author id : sk2vk
 """
-
+"""
 import os
 import logging
 from dotenv import load_dotenv
 
 load_dotenv(verbose=False)
 
-user_id = os.getenv("INTERCONNECT_USERID")
-passwd = os.getenv("INTERCONNECT_PASSWD")
-iconnect_server = os.getenv("INTERCONNECT_SERVER_PROD")
-client_ID = os.getenv("CLIENT_ID_PROD")
-iconnect_retries = 3
+# user_id = os.getenv("INTERCONNECT_USERID")
+# passwd = os.getenv("INTERCONNECT_PASSWD")
+# iconnect_server = os.getenv("INTERCONNECT_SERVER_PROD")
+# client_ID = os.getenv("CLIENT_ID_PROD")
+# iconnect_retries = 3
 
 # Blocked beds DB config
 dialect = "mssql+pyodbc"
@@ -30,23 +30,23 @@ service_pass = os.getenv("SS_DB_PASSWD")
 blocked_beds_tbl = os.getenv("SQL_SERVER_BLOCKED_BEDS_TABLE")
 
 # CENSUS config
-census_server = os.getenv("CENSUS_DB_SERVER")
-census_db = os.getenv("CENSUS_DB_NAME")
-census_userid = os.getenv("DB_USERID")
-census_pass = os.getenv("DB_PASSWD")
+# census_server = os.getenv("CENSUS_DB_SERVER")
+# census_db = os.getenv("CENSUS_DB_NAME")
+# census_userid = os.getenv("DB_USERID")
+# census_pass = os.getenv("DB_PASSWD")
 
 # TABLEAU config
-tab_server = os.getenv("TABLEAU_SERVER")
-tab_site = os.getenv("TABLEAU_SITE_NAME")
-tab_project = os.getenv("TABLEAU_PROJECT")
-tab_token_name = os.getenv("TABLEAU_TOKEN_NAME")
-tab_token = os.getenv("TABLEAU_TOKEN_KEY")
+# tab_server = os.getenv("TABLEAU_SERVER")
+# tab_site = os.getenv("TABLEAU_SITE_NAME")
+# tab_project = os.getenv("TABLEAU_PROJECT")
+# tab_token_name = os.getenv("TABLEAU_TOKEN_NAME")
+# tab_token = os.getenv("TABLEAU_TOKEN_KEY")
 
 #ODS config
-ods_server = os.getenv("ODS_DB_SERVER")
-ods_db = os.getenv("ODS_DB_NAME")
-ods_userid = os.getenv("DB_USERID")
-ods_pass = os.getenv("DB_PASSWD")
+# ods_server = os.getenv("ODS_DB_SERVER")
+# ods_db = os.getenv("ODS_DB_NAME")
+# ods_userid = os.getenv("DB_USERID")
+# ods_pass = os.getenv("DB_PASSWD")
 
 # Table config
 current_unit_census = 'dbo.Fact_Census_Unit'
@@ -61,7 +61,7 @@ pt_prog_history = 'Stage.PtProg_Dash_Data_Archive'
 transfer_status_tbl = 'DS_HSDM_App.Stage.PtProg_Transfer_Status'
 current_discharges = 'Stage.PtProg_Discharge_Today'
 
-
+"""
 unit_list = [
     {'Unit_ID': 10243051, 'Unit_Name': 'UVHE 3 CENTRAL', 'From_IConnect': True, 'Alias_Name': '3 CENTRAL', 'Unit_Group': 'Adult Acute'},
     {'Unit_ID': 10243052, 'Unit_Name': 'UVHE 3 EAST', 'From_IConnect': True, 'Alias_Name': '3 EAST', 'Unit_Group': 'Adult Acute'},
@@ -146,7 +146,7 @@ service_line_config = [
     {'ID': 9, 'SL_Name': 'Surgical Subspecialties', 'Alias_Name': 'Ophthalmology'},
     {'ID': 10, 'SL_Name': 'Transplant'},
     {'ID': 11, 'SL_Name': 'Womens and Childrens', 'Alias_Name': "Women's & Children's"}]
-
+"""
 curr_env = os.getenv('SERVER_PROD_STATUS')
 
 
@@ -169,6 +169,7 @@ else:
 
 logging.basicConfig(filename=os.path.join(log_dir, "patient_progression.log"), level=logging_level,
                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+"""
 
 """
 Created_on: 20-01-2020
@@ -179,7 +180,7 @@ Author id : sk2vk
 Description: SQL server Database connection functions
 """
 
-# import config
+import config
 import logging
 import sqlalchemy as sa
 import pandas as pd
@@ -189,11 +190,12 @@ import math
 
 class DBConnector:
     def __init__(self,
-                 dialect=config.dialect,
-                 server=config.server_name,
-                 db_name=config.db_name,
-                 service_user=config.service_user,
-                 service_pass=config.service_pass):
+        dialect=config.dialect,
+        # server=config.server_name,
+        server=config.server_name_t,
+        db_name=config.db_name,
+        service_user=config.service_user,
+        service_pass=config.service_pass):
         self.conn = None
         self.dialect = dialect
         self.server = server
@@ -235,7 +237,7 @@ class DBConnector:
         try:
             chunk_size = math.floor(2100/len(df.columns)) - 1
             df.to_sql(table, con=self.conn, schema=schema, if_exists='append', index=False, method='multi',
-                      chunksize=chunk_size)
+            chunksize=chunk_size)
         except Exception as ex:
             logging.exception(f'Error while inserting data to DB: {ex}')
             raise Exception(f'Error while inserting data to DB: {ex}')
@@ -254,18 +256,37 @@ import config
 import logging
 from utils import datetime_gmt
 from db_connector import DBConnector
-from sql import ods_unit_query
+# from sql import ods_unit_query
+from sql import get_test_data
+
+# def get_units():
+#     start_time = datetime_gmt()
+#     try:
+#         conn = DBConnector(server=config.ods_server,
+#         db_name=config.ods_db,
+#         service_user=config.ods_userid,
+#         service_pass=config.ods_pass)
+#         conn.connect()
+#         data = conn.get_data(ods_unit_query.format(config.mdm_unit_tbl))
+#         conn.close_engine()
+#         logging.info(
+#             f"PERFORMANCE DETAILS: Time taken for getting units : {(datetime_gmt() - start_time).total_seconds()} seconds")
+#         return data
+
+#     except Exception as ex:
+#         logging.exception(f"Error occurred while gathering unit/department list from ODS server: {ex}")
+#         raise Exception(f"Error occurred while gathering unit/department list from ODS server: {ex}")
 
 
-def get_units():
+def get_dbdata():
     start_time = datetime_gmt()
     try:
-        conn = DBConnector(server=config.ods_server,
-                           db_name=config.ods_db,
-                           service_user=config.ods_userid,
-                           service_pass=config.ods_pass)
+        conn = DBConnector(server=config.server_name_t,
+        db_name=config.db_name,
+        service_user=config.service_user,
+        service_pass=config.service_pass)
         conn.connect()
-        data = conn.get_data(ods_unit_query.format(config.mdm_unit_tbl))
+        data = conn.get_data(get_test_data.format(config.test_tbl))
         conn.close_engine()
         logging.info(
             f"PERFORMANCE DETAILS: Time taken for getting units : {(datetime_gmt() - start_time).total_seconds()} seconds")
@@ -274,8 +295,7 @@ def get_units():
     except Exception as ex:
         logging.exception(f"Error occurred while gathering unit/department list from ODS server: {ex}")
         raise Exception(f"Error occurred while gathering unit/department list from ODS server: {ex}")
-
-
+"""
 def get_patient_groups(unit_grp):
     if 'Adult' in unit_grp:
         return 'Adult'
@@ -321,8 +341,8 @@ def covid_active_flag(bed_name, unit_grp, bed_available, unit_id, active_flag):
     :param unit_id:
     :param active_flag:
     :return: False for 1. COVID 4 south CVICU beds moved to Acute,
-                       2. All 'B' COVID beds in 3 South and 5 South
-                       3. 4306B - 4325B in 4 sSouth Acute - since they are part of 4 South CVICU
+    2. All 'B' COVID beds in 3 South and 5 South
+    3. 4306B - 4325B in 4 sSouth Acute - since they are part of 4 South CVICU
     '''
     if ((('covid' in unit_grp.lower()) and ('b' in bed_name.lower()) and (unit_id == 10243122)) or \
         # Moving 5 South to semi private to private function (('b' in bed_name.lower()) and (unit_id == 10243124)) or \
@@ -351,8 +371,8 @@ def peds_transformations(df):
 
 
 bed_ranks = {'Occupied': 3,
-             'Not allocated': 2,
-             'Unavailable': 1}
+'Not allocated': 2,
+'Unavailable': 1}
 
 
 def semi_private_to_private(df):
@@ -416,8 +436,8 @@ def get_adults_peds_unit_group(unt_grp):
 
 # Tableau calculations
 adult_unt_group_config = {'Adult Acute': 'Acute',
-                          'Adult ICU': 'ICU',
-                          'Adult IMU': 'IMU'}
+'Adult ICU': 'ICU',
+'Adult IMU': 'IMU'}
 
 
 def get_adults_unit_group(unt_grp):
@@ -437,7 +457,7 @@ def get_unit_group_categories(unt_grp, unit):
         return 'Womens'
     else:
         return unt_grp
-
+"""
 
 if __name__ == '__main__':
-    get_units()
+    get_dbdata()

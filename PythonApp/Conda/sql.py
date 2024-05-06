@@ -6,7 +6,7 @@ Author id : sk2vk
 
 Description: Patient progression project work - SQL's for census gathering
 """
-
+''' Start of block
 current_census_query = """WITH recent_load_times AS (
                             SELECT DISTINCT
                                 unit.Unit
@@ -147,11 +147,12 @@ and DATEADD(dd, 0, event_Date)<>getdate()"""
 
 y_admissions_query = """select * from DS_HSDM_Prod.Rptg.DASH_TILE_ADMITS
 where DATEDIFF(dd, 0, event_Date) = DATEADD(dd, -1, DATEDIFF(dd, 0, GETDATE()))"""
-
+'''
 '''
 y_ed_arrivals_query = """select CSN, [LOS in Hours] as LOS, Disposition from DS_HSDM_App.Stage.Throughput_ED_Arrivals_and_Dispo
 where DATEDIFF(dd, 0, [Arrival Dt]) = DATEADD(dd, -1, DATEDIFF(dd, 0, GETDATE()))
 and (DATEDIFF(dd,[Arrival Dt],Load_Dte))=1 and (Disposition <> 'Registered in Error' or Disposition is null)"""
+'''
 '''
 
 y_ed_arrivals_query = """select person_id, LOS_in_Hours as LOS, Disposition  from [DS_HSDM_App].[TabRptg].[Dash_DailyHuddle_ED_Arrival_Tiles]
@@ -164,8 +165,6 @@ and Disposition = 'Admitted'
 """
 # TRANSFER Status query
 trans_stats_query = """SELECT  top(1) [open_to_transfer], [tier_1], [restricted_tier_1] FROM {0} order by load_dtm desc"""
+''' # End of block
 
-
-
-
-
+get_test_data = """select * from {0}"""

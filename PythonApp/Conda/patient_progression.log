@@ -1,0 +1,64 @@
+2024-05-06 10:13:58,631 - root - INFO - Establishing connection to DB. . .
+2024-05-06 10:13:58,667 - root - ERROR - Error occurred while establishing DB connection : No module named 'pyodbc'
+Traceback (most recent call last):
+  File "c:\Users\tmb4f\source\Workspaces\Tom Burgan - My Files\Development\GitRepositories\VisualStudioCode\PythonApp\Conda\db_connector.py", line 37, in connect
+    self.conn = sa.create_engine(dbconnstr, convert_unicode=True, fast_executemany=True)
+  File "<string>", line 2, in create_engine
+  File "C:\Python310\lib\site-packages\sqlalchemy\util\deprecations.py", line 281, in warned
+    return fn(*args, **kwargs)  # type: ignore[no-any-return]
+  File "C:\Python310\lib\site-packages\sqlalchemy\engine\create.py", line 599, in create_engine
+    dbapi = dbapi_meth(**dbapi_args)
+  File "C:\Python310\lib\site-packages\sqlalchemy\connectors\pyodbc.py", line 60, in import_dbapi
+    return __import__("pyodbc")
+ModuleNotFoundError: No module named 'pyodbc'
+2024-05-06 10:13:58,670 - root - ERROR - Error occurred while gathering unit/department list from ODS server: Error occurred while establishing DB connection : No module named 'pyodbc'
+Traceback (most recent call last):
+  File "c:\Users\tmb4f\source\Workspaces\Tom Burgan - My Files\Development\GitRepositories\VisualStudioCode\PythonApp\Conda\db_connector.py", line 37, in connect
+    self.conn = sa.create_engine(dbconnstr, convert_unicode=True, fast_executemany=True)
+  File "<string>", line 2, in create_engine
+  File "C:\Python310\lib\site-packages\sqlalchemy\util\deprecations.py", line 281, in warned
+    return fn(*args, **kwargs)  # type: ignore[no-any-return]
+  File "C:\Python310\lib\site-packages\sqlalchemy\engine\create.py", line 599, in create_engine
+    dbapi = dbapi_meth(**dbapi_args)
+  File "C:\Python310\lib\site-packages\sqlalchemy\connectors\pyodbc.py", line 60, in import_dbapi
+    return __import__("pyodbc")
+ModuleNotFoundError: No module named 'pyodbc'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\tmb4f\source\Workspaces\Tom Burgan - My Files\Development\GitRepositories\VisualStudioCode\PythonApp\Conda\DBConnection.py", line 288, in get_dbdata
+    conn.connect()
+  File "c:\Users\tmb4f\source\Workspaces\Tom Burgan - My Files\Development\GitRepositories\VisualStudioCode\PythonApp\Conda\db_connector.py", line 41, in connect
+    raise Exception(f'Error occurred while establishing DB connection : {ex}')
+Exception: Error occurred while establishing DB connection : No module named 'pyodbc'
+2024-05-06 10:25:56,033 - root - INFO - Establishing connection to DB. . .
+2024-05-06 10:25:56,076 - root - ERROR - Error occurred while establishing DB connection : Invalid argument(s) 'convert_unicode' sent to create_engine(), using configuration MSDialect_pyodbc/QueuePool/Engine.  Please check that the keyword arguments are appropriate for this combination of components.
+Traceback (most recent call last):
+  File "c:\Users\tmb4f\source\Workspaces\Tom Burgan - My Files\Development\GitRepositories\VisualStudioCode\PythonApp\Conda\db_connector.py", line 37, in connect
+    self.conn = sa.create_engine(dbconnstr, convert_unicode=True, fast_executemany=True)
+  File "<string>", line 2, in create_engine
+  File "C:\Python310\lib\site-packages\sqlalchemy\util\deprecations.py", line 281, in warned
+    return fn(*args, **kwargs)  # type: ignore[no-any-return]
+  File "C:\Python310\lib\site-packages\sqlalchemy\engine\create.py", line 697, in create_engine
+    raise TypeError(
+TypeError: Invalid argument(s) 'convert_unicode' sent to create_engine(), using configuration MSDialect_pyodbc/QueuePool/Engine.  Please check that the keyword arguments are appropriate for this combination of components.
+2024-05-06 10:25:56,078 - root - ERROR - Error occurred while gathering unit/department list from ODS server: Error occurred while establishing DB connection : Invalid argument(s) 'convert_unicode' sent to create_engine(), using configuration MSDialect_pyodbc/QueuePool/Engine.  Please check that the keyword arguments are appropriate for this combination of components.
+Traceback (most recent call last):
+  File "c:\Users\tmb4f\source\Workspaces\Tom Burgan - My Files\Development\GitRepositories\VisualStudioCode\PythonApp\Conda\db_connector.py", line 37, in connect
+    self.conn = sa.create_engine(dbconnstr, convert_unicode=True, fast_executemany=True)
+  File "<string>", line 2, in create_engine
+  File "C:\Python310\lib\site-packages\sqlalchemy\util\deprecations.py", line 281, in warned
+    return fn(*args, **kwargs)  # type: ignore[no-any-return]
+  File "C:\Python310\lib\site-packages\sqlalchemy\engine\create.py", line 697, in create_engine
+    raise TypeError(
+TypeError: Invalid argument(s) 'convert_unicode' sent to create_engine(), using configuration MSDialect_pyodbc/QueuePool/Engine.  Please check that the keyword arguments are appropriate for this combination of components.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\tmb4f\source\Workspaces\Tom Burgan - My Files\Development\GitRepositories\VisualStudioCode\PythonApp\Conda\DBConnection.py", line 288, in get_dbdata
+    conn.connect()
+  File "c:\Users\tmb4f\source\Workspaces\Tom Burgan - My Files\Development\GitRepositories\VisualStudioCode\PythonApp\Conda\db_connector.py", line 41, in connect
+    raise Exception(f'Error occurred while establishing DB connection : {ex}')
+Exception: Error occurred while establishing DB connection : Invalid argument(s) 'convert_unicode' sent to create_engine(), using configuration MSDialect_pyodbc/QueuePool/Engine.  Please check that the keyword arguments are appropriate for this combination of components.
