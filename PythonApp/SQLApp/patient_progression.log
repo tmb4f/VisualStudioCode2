@@ -1,0 +1,14 @@
+2024-05-18 13:11:24,716 - root - INFO - mssql+pyodbc://HSCDOM\tmb4f:Augustanet@HSTSDSSQLDMT/DS_HSDM_App?driver=ODBC+Driver+17+for+SQL+Server&trusted_connection=yes
+2024-05-18 13:11:24,716 - root - INFO - Establishing connection to DB. . .
+2024-05-18 13:19:38,220 - root - INFO - mssql+pyodbc://HSCDOM\tmb4f:Augustanet@HSTSDSSQLDMT/DS_HSDM_App?driver=ODBC+Driver+17+for+SQL+Server&trusted_connection=yes
+2024-05-18 13:19:38,220 - root - INFO - Establishing connection to DB. . .
+2024-05-18 13:27:32,036 - root - INFO - mssql+pyodbc://HSCDOM\tmb4f:Augustanet@HSTSDSSQLDMT/DS_HSDM_App?driver=ODBC+Driver+17+for+SQL+Server&trusted_connection=yes
+2024-05-18 13:27:32,036 - root - INFO - Establishing connection to DB. . .
+2024-05-18 13:34:22,112 - root - INFO - mssql+pyodbc://HSCDOM\tmb4f:Augustanet@HSTSDSSQLDMT/DS_HSDM_App?driver=ODBC+Driver+17+for+SQL+Server&trusted_connection=yes
+2024-05-18 13:34:22,112 - root - INFO - Establishing connection to DB. . .
+2024-05-18 13:45:29,354 - __main__ - INFO - mssql+pyodbc://HSCDOM\tmb4f:Augustanet@HSTSDSSQLDMT/DS_HSDM_App?driver=ODBC+Driver+17+for+SQL+Server&trusted_connection=yes
+2024-05-18 13:45:29,354 - __main__ - INFO - Establishing connection to DB. . .
+2024-05-18 13:51:06,766 - root - INFO - mssql+pyodbc://HSCDOM\tmb4f:Augustanet@HSTSDSSQLDMT/DS_HSDM_App?driver=ODBC+Driver+17+for+SQL+Server&trusted_connection=yes
+2024-05-18 13:51:06,766 - root - INFO - Establishing connection to DB. . .
+2024-05-18 13:55:19,474 - root - INFO - mssql+pyodbc://HSCDOM\tmb4f:Augustanet@HSTSDSSQLDMT/DS_HSDM_App?driver=ODBC+Driver+17+for+SQL+Server&trusted_connection=yes
+2024-05-18 13:55:19,474 - root - INFO - Establishing connection to DB. . .
