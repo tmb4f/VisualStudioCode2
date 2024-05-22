@@ -12,3 +12,27 @@
 2024-05-18 13:51:06,766 - root - INFO - Establishing connection to DB. . .
 2024-05-18 13:55:19,474 - root - INFO - mssql+pyodbc://HSCDOM\tmb4f:Augustanet@HSTSDSSQLDMT/DS_HSDM_App?driver=ODBC+Driver+17+for+SQL+Server&trusted_connection=yes
 2024-05-18 13:55:19,474 - root - INFO - Establishing connection to DB. . .
+2024-05-22 09:31:38,833 - sqlalchemy.engine.Engine - INFO - SELECT CAST(SERVERPROPERTY('ProductVersion') AS VARCHAR)
+2024-05-22 09:31:38,836 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2024-05-22 09:31:38,840 - sqlalchemy.engine.Engine - INFO - SELECT schema_name()
+2024-05-22 09:31:38,840 - sqlalchemy.engine.Engine - INFO - [generated in 0.00092s] ()
+2024-05-22 09:31:38,845 - sqlalchemy.engine.Engine - INFO - SELECT CAST('test max support' AS NVARCHAR(max))
+2024-05-22 09:31:38,846 - sqlalchemy.engine.Engine - INFO - [generated in 0.00125s] ()
+2024-05-22 09:31:38,849 - sqlalchemy.engine.Engine - INFO - SELECT 1 FROM fn_listextendedproperty(default, default, default, default, default, default, default)
+2024-05-22 09:31:38,850 - sqlalchemy.engine.Engine - INFO - [generated in 0.00097s] ()
+2024-05-22 09:31:38,855 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2024-05-22 09:31:38,856 - sqlalchemy.engine.Engine - INFO - select 'hello world'
+2024-05-22 09:31:38,857 - sqlalchemy.engine.Engine - INFO - [generated in 0.00166s] ()
+2024-05-22 09:31:38,859 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2024-05-22 09:32:44,666 - sqlalchemy.engine.Engine - INFO - SELECT CAST(SERVERPROPERTY('ProductVersion') AS VARCHAR)
+2024-05-22 09:32:44,668 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2024-05-22 09:32:44,668 - sqlalchemy.engine.Engine - INFO - SELECT schema_name()
+2024-05-22 09:32:44,668 - sqlalchemy.engine.Engine - INFO - [generated in 0.00094s] ()
+2024-05-22 09:32:44,674 - sqlalchemy.engine.Engine - INFO - SELECT CAST('test max support' AS NVARCHAR(max))
+2024-05-22 09:32:44,674 - sqlalchemy.engine.Engine - INFO - [generated in 0.00106s] ()
+2024-05-22 09:32:44,674 - sqlalchemy.engine.Engine - INFO - SELECT 1 FROM fn_listextendedproperty(default, default, default, default, default, default, default)
+2024-05-22 09:32:44,674 - sqlalchemy.engine.Engine - INFO - [generated in 0.00130s] ()
+2024-05-22 09:32:44,685 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2024-05-22 09:32:44,686 - sqlalchemy.engine.Engine - INFO - select * from Stage.Stage_Invoca_CallActivity
+2024-05-22 09:32:44,686 - sqlalchemy.engine.Engine - INFO - [generated in 0.00236s] ()
+2024-05-22 09:32:45,023 - sqlalchemy.engine.Engine - INFO - ROLLBACK

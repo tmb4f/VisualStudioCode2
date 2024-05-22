@@ -19,7 +19,7 @@ load_dotenv(verbose=False)
 
 # Blocked beds DB config
 dialect = "mssql+pyodbc"
-db_driver = "ODBC+Driver+18+for+SQL+Server"
+db_driver = "ODBC+Driver+17+for+SQL+Server"
 trusted_connection = 'yes'
 server_name = os.getenv("SS_DB_SERVER")
 server_name_t = os.getenv("SS_DB_SERVER_T")
