@@ -108,3 +108,19 @@
 2024-06-08 12:06:10,959 - sqlalchemy.engine.Engine - INFO - select * from Stage.Stage_Invoca_CallActivity
 2024-06-08 12:06:10,961 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
 2024-06-08 12:06:11,234 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2024-06-08 12:54:53,616 - sqlalchemy.engine.Engine - INFO - SELECT CAST(SERVERPROPERTY('ProductVersion') AS VARCHAR)
+2024-06-08 12:54:53,616 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2024-06-08 12:54:53,616 - sqlalchemy.engine.Engine - INFO - SELECT schema_name()
+2024-06-08 12:54:53,616 - sqlalchemy.engine.Engine - INFO - [generated in 0.00106s] ()
+2024-06-08 12:54:53,631 - sqlalchemy.engine.Engine - INFO - SELECT CAST('test max support' AS NVARCHAR(max))
+2024-06-08 12:54:53,631 - sqlalchemy.engine.Engine - INFO - [generated in 0.00120s] ()
+2024-06-08 12:54:53,631 - sqlalchemy.engine.Engine - INFO - SELECT 1 FROM fn_listextendedproperty(default, default, default, default, default, default, default)
+2024-06-08 12:54:53,631 - sqlalchemy.engine.Engine - INFO - [generated in 0.00149s] ()
+2024-06-08 12:54:53,642 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2024-06-08 12:54:53,644 - sqlalchemy.engine.Engine - INFO - select * from Stage.Stage_Invoca_CallActivity
+2024-06-08 12:54:53,645 - sqlalchemy.engine.Engine - INFO - [generated in 0.00276s] ()
+2024-06-08 12:54:54,486 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2024-06-08 12:57:05,154 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2024-06-08 12:57:05,154 - sqlalchemy.engine.Engine - INFO - select * from Stage.Stage_Invoca_CallActivity
+2024-06-08 12:57:05,154 - sqlalchemy.engine.Engine - INFO - [cached since 131.5s ago] ()
+2024-06-08 12:57:05,815 - sqlalchemy.engine.Engine - INFO - ROLLBACK
