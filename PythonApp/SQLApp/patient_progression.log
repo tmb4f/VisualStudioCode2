@@ -124,3 +124,15 @@
 2024-06-08 12:57:05,154 - sqlalchemy.engine.Engine - INFO - select * from Stage.Stage_Invoca_CallActivity
 2024-06-08 12:57:05,154 - sqlalchemy.engine.Engine - INFO - [cached since 131.5s ago] ()
 2024-06-08 12:57:05,815 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2024-06-08 13:00:46,135 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2024-06-08 13:00:46,137 - sqlalchemy.engine.Engine - INFO - select * from Stage.Stage_Invoca_CallActivity
+2024-06-08 13:00:46,138 - sqlalchemy.engine.Engine - INFO - [cached since 352.5s ago] ()
+2024-06-08 13:00:46,515 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2024-06-08 13:01:36,835 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2024-06-08 13:01:36,836 - sqlalchemy.engine.Engine - INFO - select * from Stage.Stage_Invoca_CallActivity
+2024-06-08 13:01:36,836 - sqlalchemy.engine.Engine - INFO - [cached since 403.2s ago] ()
+2024-06-08 13:01:37,205 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2024-06-08 13:03:47,503 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2024-06-08 13:03:47,503 - sqlalchemy.engine.Engine - INFO - select * from Stage.Stage_Invoca_CallActivity
+2024-06-08 13:03:47,503 - sqlalchemy.engine.Engine - INFO - [cached since 533.9s ago] ()
+2024-06-08 13:03:47,913 - sqlalchemy.engine.Engine - INFO - ROLLBACK
