@@ -136,3 +136,23 @@
 2024-06-08 13:03:47,503 - sqlalchemy.engine.Engine - INFO - select * from Stage.Stage_Invoca_CallActivity
 2024-06-08 13:03:47,503 - sqlalchemy.engine.Engine - INFO - [cached since 533.9s ago] ()
 2024-06-08 13:03:47,913 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2024-06-17 17:57:33,258 - sqlalchemy.engine.Engine - INFO - SELECT CAST(SERVERPROPERTY('ProductVersion') AS VARCHAR)
+2024-06-17 17:57:33,260 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2024-06-17 17:57:33,265 - sqlalchemy.engine.Engine - INFO - SELECT schema_name()
+2024-06-17 17:57:33,266 - sqlalchemy.engine.Engine - INFO - [generated in 0.00128s] ()
+2024-06-17 17:57:33,274 - sqlalchemy.engine.Engine - INFO - SELECT CAST('test max support' AS NVARCHAR(max))
+2024-06-17 17:57:33,276 - sqlalchemy.engine.Engine - INFO - [generated in 0.00142s] ()
+2024-06-17 17:57:33,279 - sqlalchemy.engine.Engine - INFO - SELECT 1 FROM fn_listextendedproperty(default, default, default, default, default, default, default)
+2024-06-17 17:57:33,280 - sqlalchemy.engine.Engine - INFO - [generated in 0.00164s] ()
+2024-06-17 17:57:33,286 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2024-06-17 17:57:33,288 - sqlalchemy.engine.Engine - INFO - select * from Stage.Stage_Invoca_CallActivity
+2024-06-17 17:57:33,290 - sqlalchemy.engine.Engine - INFO - [generated in 0.00374s] ()
+2024-06-17 17:57:33,696 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2024-06-17 17:57:33,809 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2024-06-17 17:57:33,809 - sqlalchemy.engine.Engine - INFO - select * from Stage.Stage_Invoca_CallActivity
+2024-06-17 17:57:33,816 - sqlalchemy.engine.Engine - INFO - [cached since 0.5302s ago] ()
+2024-06-17 17:57:34,737 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2024-06-17 17:57:36,920 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2024-06-17 17:57:36,922 - sqlalchemy.engine.Engine - INFO - select * from Stage.Stage_Invoca_CallActivity
+2024-06-17 17:57:36,923 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2024-06-17 17:57:37,203 - sqlalchemy.engine.Engine - INFO - ROLLBACK
