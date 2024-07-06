@@ -22,7 +22,7 @@ Service_Line_Dictionary = {'Dental Services': ['Dental Services'],
 dnamein = "O:\\Computing Services\\INFSUP_S\\Documentation\\Projects\\Patient Experience\\Data\\Goals\\Cleaned"
 dnameout = "O:\\Computing Services\\INFSUP_S\\Documentation\\Projects\\Patient Experience\\Data\\Goals\\Cleaned"
 
-fnamein = "i.	Tom's Copy-FY25 Goals_07052024 Staging.txt"
+fnamein = "Tom's Copy-FY25 Goals_07052024 Staging.txt"
 
 fnameout = "FY25 DP MC CH Targets.txt"
 
@@ -50,6 +50,7 @@ for row in csvreader:
 
 # dfs = df.iloc[:,[1,2,3,4,6,7,8,18,21]]
 
+# dfs = df.iloc[:,[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]]
 dfs = df.iloc[:,[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]]
 
 service_line_columns = ['Service_Line','Epic_Department_Id','Epic_Department_Name','Domain','Question','FY2025_Unit_Score','Organization','FY2025_Organization_Score','Service','FY2025_Service_Score','Clinical_Area','FY2025_Clinical_Area_Score','FY2025_All_SL_Score','UVa_Health_Ambulatory','F2025_UVaHeath_Ambulatory_Score']
@@ -59,7 +60,7 @@ dfo = pd.DataFrame(columns = service_line_columns)
 #
 # Iterate through dataframe by row
 #
-  
+
 for i,row in dfs.iterrows():
 	topbox_li = row.tolist() # Transform goal data row into a list
 	
@@ -80,44 +81,44 @@ for i,row in dfs.iterrows():
 			if index == 7: FY2025_Clinical_Area_Score = topbox_li[index]
 			if index == 12: FY2025_All_SL_Score = topbox_li[index]
 			if index == 13: UVa_Health_Ambulatory = topbox_li[index]
-			if index == 14: F2025_UVaHeath_Ambulatory_Score = topbox_li[index]
+			if index == 14: FY2025_UVaHeath_Ambulatory_Score = topbox_li[index]
 	
-		# dfo = dfo.append(dict(zip(service_line_columns, (Service_Line,Epic_Department_Id,Epic_Department_Name,Domain,Question,FY2024_Unit_Score,Organization,FY2024_Organization_Score,Service,FY2024_Service_Score,Clinical_Area,FY2024_Clinical_Area_Score,FY2024_All_SL_Score,UVa_Health_Ambulatory,F2024_UVaHeath_Ambulatory_Score))),ignore_index=True)
-		dfo = dfo.append(dict(zip(service_line_columns, (Service_Line,Epic_Department_Id,Epic_Department_Name,Domain,Question,FY2024_Unit_Score,Organization,FY2024_Organization_Score,Service,FY2024_Service_Score,Clinical_Area,FY2024_Clinical_Area_Score,FY2024_All_SL_Score,UVa_Health_Ambulatory,F2024_UVaHeath_Ambulatory_Score))),ignore_index=True)
+		# dfo = dfo.append(dict(zip(service_line_columns, (Service_Line,Epic_Department_Id,Epic_Department_Name,Domain,Question,FY2025_Unit_Score,Organization,FY2025_Organization_Score,Service,FY2025_Service_Score,Clinical_Area,FY2025_Clinical_Area_Score,FY2025_All_SL_Score,UVa_Health_Ambulatory,FY2025_UVaHeath_Ambulatory_Score))),ignore_index=True)
+		dfo = dfo._append(dict(zip(service_line_columns, (Service_Line,Epic_Department_Id,Epic_Department_Name,Domain,Question,FY2025_Unit_Score,Organization,FY2025_Organization_Score,Service,FY2025_Service_Score,Clinical_Area,FY2025_Clinical_Area_Score,FY2025_All_SL_Score,UVa_Health_Ambulatory,FY2025_UVaHeath_Ambulatory_Score))),ignore_index=True)
 
 dfo = dfo.fillna('')
-dfo.rename(index=str, columns={"FY2024_Unit_Score": "2024"}, inplace=True)
+dfo.rename(index=str, columns={"FY2025_Unit_Score": "2025"}, inplace=True)
 
 dfo_unpivot_1 = pd.melt(dfo.replace('null',np.nan),
-                        id_vars=['Service_Line','Epic_Department_Id','Epic_Department_Name','Domain','Question','Organization','FY2024_Organization_Score','Service','FY2024_Service_Score','Clinical_Area','FY2024_Clinical_Area_Score','FY2024_All_SL_Score','UVa_Health_Ambulatory','F2024_UVaHeath_Ambulatory_Score'],
-   value_vars=dfo.columns.drop(['Service_Line','Epic_Department_Id','Epic_Department_Name','Domain','Question','Organization','FY2024_Organization_Score','Service','FY2024_Service_Score','Clinical_Area','FY2024_Clinical_Area_Score','FY2024_All_SL_Score','UVa_Health_Ambulatory','F2024_UVaHeath_Ambulatory_Score']).tolist(),
-   value_name='Unit_Score',
-   var_name='FY') \
-   .dropna() \
-   .sort_values(['Service_Line','Epic_Department_Id','Epic_Department_Name','Domain','Question','Organization','FY2024_Organization_Score','Service','FY2024_Service_Score','Clinical_Area','FY2024_Clinical_Area_Score','FY2024_All_SL_Score','UVa_Health_Ambulatory','F2024_UVaHeath_Ambulatory_Score'])
+                        id_vars=['Service_Line','Epic_Department_Id','Epic_Department_Name','Domain','Question','Organization','FY2025_Organization_Score','Service','FY2025_Service_Score','Clinical_Area','FY2025_Clinical_Area_Score','FY2025_All_SL_Score','UVa_Health_Ambulatory','FY2025_UVaHeath_Ambulatory_Score'],
+                        value_vars=dfo.columns.drop(['Service_Line','Epic_Department_Id','Epic_Department_Name','Domain','Question','Organization','FY2025_Organization_Score','Service','FY2025_Service_Score','Clinical_Area','FY2025_Clinical_Area_Score','FY2025_All_SL_Score','UVa_Health_Ambulatory','FY2025_UVaHeath_Ambulatory_Score']).tolist(),
+                        value_name='Unit_Score',
+                        var_name='FY') \
+                            .dropna() \
+                                .sort_values(['Service_Line','Epic_Department_Id','Epic_Department_Name','Domain','Question','Organization','FY2025_Organization_Score','Service','FY2025_Service_Score','Clinical_Area','FY2025_Clinical_Area_Score','FY2025_All_SL_Score','UVa_Health_Ambulatory','FY2025_UVaHeath_Ambulatory_Score'])
     
 dfo_unpivot_1.drop(['FY'], axis = 1, inplace = True) 
 dfo_unpivot_1['Unit_Score'] = dfo_unpivot_1['Unit_Score'].apply(lambda x: str(round(float(x),1)) if len(x) > 0 else x)
 
-dfo_unpivot_1.rename(index=str, columns={"FY2024_All_SL_Score": "SL_Score"}, inplace=True)
+dfo_unpivot_1.rename(index=str, columns={"FY2025_All_SL_Score": "SL_Score"}, inplace=True)
 
-dfo_unpivot_1.rename(index=str, columns={"F2024_UVaHeath_Ambulatory_Score": "UVaH_Score"}, inplace=True)
+dfo_unpivot_1.rename(index=str, columns={"FY2025_UVaHeath_Ambulatory_Score": "UVaH_Score"}, inplace=True)
 
-dfo_unpivot_1.rename(index=str, columns={"FY2024_Organization_Score": "Organization_Score"}, inplace=True)
-dfo_unpivot_1.rename(index=str, columns={"FY2024_Service_Score": "Service_Score"}, inplace=True)
-dfo_unpivot_1.rename(index=str, columns={"FY2024_Clinical_Area_Score": "Clinical_Area_Score"}, inplace=True)
+dfo_unpivot_1.rename(index=str, columns={"FY2025_Organization_Score": "Organization_Score"}, inplace=True)
+dfo_unpivot_1.rename(index=str, columns={"FY2025_Service_Score": "Service_Score"}, inplace=True)
+dfo_unpivot_1.rename(index=str, columns={"FY2025_Clinical_Area_Score": "Clinical_Area_Score"}, inplace=True)
 
 dfo_unpivot_2 = pd.melt(dfo_unpivot_1.replace('null',np.nan),
-   id_vars=['Service_Line','Epic_Department_Id','Epic_Department_Name','Domain','Question','Organization','Organization_Score','Service','Service_Score','Clinical_Area','Clinical_Area_Score','Unit_Score','SL_Score','UVa_Health_Ambulatory'],
-   value_vars=dfo_unpivot_1.columns.drop(['Service_Line','Epic_Department_Id','Epic_Department_Name','Domain','Question','Organization','Organization_Score','Service','Service_Score','Clinical_Area','Clinical_Area_Score','Unit_Score','SL_Score','UVa_Health_Ambulatory']).tolist(),
-   value_name='UVaH_Score',
-   var_name='FY') \
-   .dropna() \
-   .sort_values(['Service_Line','Epic_Department_Id','Epic_Department_Name','Domain','Question','Organization','Organization_Score','Service','Service_Score','Clinical_Area','Clinical_Area_Score','Unit_Score','SL_Score','UVa_Health_Ambulatory'])
+                        id_vars=['Service_Line','Epic_Department_Id','Epic_Department_Name','Domain','Question','Organization','Organization_Score','Service','Service_Score','Clinical_Area','Clinical_Area_Score','Unit_Score','SL_Score','UVa_Health_Ambulatory'],
+                        value_vars=dfo_unpivot_1.columns.drop(['Service_Line','Epic_Department_Id','Epic_Department_Name','Domain','Question','Organization','Organization_Score','Service','Service_Score','Clinical_Area','Clinical_Area_Score','Unit_Score','SL_Score','UVa_Health_Ambulatory']).tolist(),
+                        value_name='UVaH_Score',
+                        var_name='FY') \
+                            .dropna() \
+                            .sort_values(['Service_Line','Epic_Department_Id','Epic_Department_Name','Domain','Question','Organization','Organization_Score','Service','Service_Score','Clinical_Area','Clinical_Area_Score','Unit_Score','SL_Score','UVa_Health_Ambulatory'])
     
 dfo_unpivot_2.drop(['FY'], axis = 1, inplace = True)
 dfo_unpivot_2['UVaH_Score'] = dfo_unpivot_2['UVaH_Score'].apply(lambda x: str(round(float(x),1)) if len(x) > 0 else x)
- 
+
 dfo_unpivot_2['Organization_Score'] = dfo_unpivot_2['Organization_Score'].apply(lambda x: str(round(float(x),1)) if len(x) > 0 else x) 
 dfo_unpivot_2['Service_Score'] = dfo_unpivot_2['Service_Score'].apply(lambda x: str(round(float(x),1)) if len(x) > 0 else x) 
 dfo_unpivot_2['Clinical_Area_Score'] = dfo_unpivot_2['Clinical_Area_Score'].apply(lambda x: str(round(float(x),1)) if len(x) > 0 else x)
