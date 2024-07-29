@@ -23,7 +23,8 @@ dnamein = "O:\\Computing Services\\INFSUP_S\\Documentation\\Projects\\Patient Ex
 dnameout = "O:\\Computing Services\\INFSUP_S\\Documentation\\Projects\\Patient Experience\\Data\\Goals\\Cleaned"
 
 # fnamein = "Tom's Copy-FY25 Goals_07052024 Staging.txt"
-fnamein = "Tom's Copy-FY25 Goals 7242024_07242024 Staging.txt"
+# fnamein = "Tom's Copy-FY25 Goals 7242024_07242024 Staging.txt"
+fnamein = "Tom's Copy-MC CH FY25 Goals 7292024_07292024 Staging.txt"
 
 fnameout = "FY25 DP MC CH Targets.txt"
 
