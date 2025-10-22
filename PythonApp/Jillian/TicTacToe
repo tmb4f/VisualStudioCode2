@@ -1,0 +1,80 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Feb  5 19:56:36 2023
+
+@author: Thomas Pingel
+"""
+
+import numpy as np
+import time
+
+
+#%%
+
+def check_state(board):
+    # returns 'x_wins', 'o_wins', 'cat_game', or 'no_winner'
+    if np.any(np.sum(board=='x',axis=0)==3) or \
+        np.any(np.sum(board=='x',axis=1)==3) or \
+            np.trace(board=='x')==3 or np.trace(np.rot90(board)=='x')==3:
+           return 'x_wins'
+    if np.any(np.sum(board=='o',axis=0)==3) or \
+        np.any(np.sum(board=='o',axis=1)==3) or \
+            np.trace(board=='o')==3 or np.trace(np.rot90(board)=='o')==3:
+           return 'o_wins'
+    if np.sum(board==' ')==0:
+        return 'cat_game'
+    else:
+        return 'no_winner'
+    
+
+def make_random_move(board,player):
+    tic = time.time()
+
+    print(board)
+
+    # print(board == 'x')
+    # print(board == 'o')
+
+    xr, xc = np.nonzero(board=='x')
+    print(xr)
+    print(xc)
+
+    orw, oc = np.nonzero(board=='o')
+    print(orw)
+    print(oc)
+
+    r,c = np.nonzero(board==' ')
+    print(r)
+    print(c)
+    choice = np.random.choice(range(len(c)))
+    print(choice)
+    board[r[choice],c[choice]] = player
+
+    toc = time.time()
+    
+    return board,toc-tic    
+
+# *** THIS IS THE FUNCTION TO WORK ON ***
+def make_move(board,player):
+    return make_random_move(board,player)
+    
+    
+    
+    
+#%%
+
+board = np.full((3,3),' ')
+state = 'no_winner'
+
+while state=='no_winner':
+    num_ohs = np.sum(board=='o')
+    num_exes = np.sum(board=='x')
+    if num_ohs==num_exes:
+        make_random_move(board,'o')
+    else:
+        make_move(board,'x')
+    # print(board,'\n')
+    state = check_state(board)
+
+print(board)
+print(state)

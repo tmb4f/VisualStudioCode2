@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "../CHCAHPS"
+		},
+		{
+			"path": "../Jillian"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"cSpell.words": [
+			"dtypes",
+			"iloc"
+		]
+	}
+}

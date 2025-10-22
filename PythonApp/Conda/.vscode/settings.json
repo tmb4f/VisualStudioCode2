@@ -1,0 +1,10 @@
+{
+    "cSpell.words": [
+        "lxml",
+        "sqlalchemy"
+    ],
+    "python.analysis.extraPaths": [
+        "C:/Users/tmb4f/AppData/Local/anaconda3/python.exe",
+        "./bs4/builder/_"
+    ]
+}
